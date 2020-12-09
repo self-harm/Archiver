@@ -1,4 +1,4 @@
-package com.javarush.task.task31.task3110.command;
+ppackege io.archiver.command;
 
 public class ZipContentCommand extends ZipCommand{
 }
