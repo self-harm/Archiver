@@ -1,4 +1,4 @@
-packege io.Archiver
+packege io.archiver;
 
 import java.io.BufferedReader;
 import java.io.IOException;
