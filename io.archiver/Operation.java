@@ -1,3 +1,5 @@
+packege io.archiver;
+
 public enum Operation {
     CREATE,
     ADD,
