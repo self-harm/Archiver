@@ -1,4 +1,4 @@
-package com.javarush.task.task31.task3110.exception;
+packege io.archiver.exception;
 
 public class PathIsNotFoundException extends Exception{
 }
