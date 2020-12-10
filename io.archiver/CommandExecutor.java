@@ -23,6 +23,7 @@ public class CommandExecutor {
 
     //invokes execute method for input operation from HashMap
     public static void execute(Operation operation) throws Exception{
+        //allKnownCommandsMap.get(operation).execute();
         for(Map.Entry<Operation, Command> entry: allKnownCommandsMap.entrySet()){
             if(operation.equals(entry.getKey())) entry.getValue().execute();
         }
