@@ -168,6 +168,7 @@ public class ZipFileManager {
         Files.move(tempZipFile, zipFile, StandardCopyOption.REPLACE_EXISTING);
     }
     
+    
       public void addFiles(List<Path> absolutePathList) throws Exception{
         if (!Files.isRegularFile(zipFile)) {
             throw new WrongZipFileException();
@@ -195,7 +196,7 @@ public class ZipFileManager {
                 }
             }
 
-            // Архивируем новые файлы
+            //archive new files
             for (Path file : absolutePathList) {
                 if (Files.isRegularFile(file)) {
                     if (archiveFiles.contains(file.getFileName()))
