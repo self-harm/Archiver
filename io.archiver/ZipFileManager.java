@@ -211,4 +211,8 @@ public class ZipFileManager {
         }
         Files.move(tempZipFile, zipFile, StandardCopyOption.REPLACE_EXISTING);
     }
+    
+     public void addFile(Path absolutePath) throws Exception {
+        addFiles(Collections.singletonList(absolutePath));
+    }
 }
