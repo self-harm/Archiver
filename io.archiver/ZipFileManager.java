@@ -68,6 +68,31 @@ public class ZipFileManager {
             zipOutputStream.closeEntry();
         }
     }
+    
+       public List<FileProperties> getFilesList() throws Exception {
+            //check if zipFile isn't a normal file
+            if(!Files.isRegularFile(zipFile)) throw new WrongZipFileException();
+
+            //create ArrayList of FileProperties
+            List<FileProperties> listOfFiles = new ArrayList<>();
+
+
+            try(ZipInputStream zipInputStream = new ZipInputStream(Files.newInputStream(zipFile))){
+                //receive a zipEntry
+                ZipEntry zipEntry = zipInputStream.getNextEntry();
+
+                while(zipEntry!=null){
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    copyData(zipInputStream, baos);
+
+                    FileProperties file = new FileProperties(zipEntry.getName(), zipEntry.getSize(), zipEntry.getCompressedSize(), zipEntry.getMethod());
+                    listOfFiles.add(file);
+                    zipEntry = zipInputStream.getNextEntry();
+                }
+                
+            }
+            return listOfFiles;
+    }
 
     private void copyData(InputStream in, OutputStream out) throws Exception {
         byte[] buffer = new byte[8 * 1024];
